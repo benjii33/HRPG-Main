@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "time.h": "c",
+        "sequencing.h": "c",
+        "ignition_control.h": "c",
+        "solenoid_control.h": "c"
+    }
+}

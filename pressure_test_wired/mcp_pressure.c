@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <string.h>
 #include "pico/stdlib.h"
 #include "hardware/spi.h"
 #include "mcp_pressure.h"
@@ -42,10 +40,6 @@ void pressure_init() {
     gpio_init(PIN_CS);
     gpio_set_dir(PIN_CS, GPIO_OUT);
     gpio_put(PIN_CS, 1);
-
-    gpio_init(PICO_DEFAULT_LED_PIN);
-    gpio_set_dir(PICO_DEFAULT_LED_PIN, GPIO_OUT);
-    gpio_put(PICO_DEFAULT_LED_PIN, 1);
 }
 
 // Returns pressure in PSI 
