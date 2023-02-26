@@ -5,19 +5,18 @@
 // #include <SPI.h>
 
 #include "pico/stdlib.h"
+#include "pico/stdio.h"
 #include "pico/binary_info.h"
 #include "hardware/gpio.h"
 #include "hardware/spi.h"
-#include "string.h"
+#include "spi_connections.h"
+#include "string"
 #include "Print.h"
 
-#define PIN_MISO 16
-#define PIN_CS   8
-#define PIN_SCK  18
-#define PIN_MOSI 19
-
-#define SPI_PORT spi0
-#define READ_BIT 0x80
+// #define PIN_MISO 16
+// #define PIN_CS   13
+// #define PIN_SCK  18
+// #define PIN_MOSI 19
 
 #define LORA_DEFAULT_SPI           spi0
 #define LORA_DEFAULT_SPI_FREQUENCY 8E6
@@ -96,7 +95,7 @@ public:
   void setSPI(spi_inst_t& spi);
   void setSPIFrequency(uint32_t frequency);
 
-  void dumpRegisters();
+  //void dumpRegisters();
 
 private:
   void explicitHeaderMode();

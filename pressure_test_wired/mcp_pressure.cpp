@@ -1,16 +1,17 @@
 #include "pico/stdlib.h"
 #include "hardware/spi.h"
 #include "mcp_pressure.h"
+#include "spi_connections.h"
 
 static inline void cs_select() {
     asm volatile("nop \n nop \n nop");
-    gpio_put(PIN_CS, 0);  // Active low
+    gpio_put(MCP_CS, 0);  // Active low
     asm volatile("nop \n nop \n nop");
 }
 
 static inline void cs_deselect() {
     asm volatile("nop \n nop \n nop");
-    gpio_put(PIN_CS, 1);
+    gpio_put(MCP_CS, 1);
     asm volatile("nop \n nop \n nop");
 }
 
@@ -37,9 +38,9 @@ void pressure_init() {
     gpio_set_function(PIN_MOSI, GPIO_FUNC_SPI);
 
     // Chip select is active-low, so we'll initialise it to a driven-high state
-    gpio_init(PIN_CS);
-    gpio_set_dir(PIN_CS, GPIO_OUT);
-    gpio_put(PIN_CS, 1);
+    gpio_init(MCP_CS);
+    gpio_set_dir(MCP_CS, GPIO_OUT);
+    gpio_put(MCP_CS, 1);
 }
 
 // Returns pressure in PSI 

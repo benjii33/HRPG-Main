@@ -1,4 +1,5 @@
 #include "LoRa-RP2040.h"
+#include "pico/stdio.h"
 
 // registers
 #define REG_FIFO                 0x00
@@ -646,12 +647,12 @@ void LoRaClass::setSPIFrequency(uint32_t frequency)
   spi_set_baudrate(SPI_PORT, frequency);
 }
 
-void LoRaClass::dumpRegisters()
-{
-  for (int i = 0; i < 128; i++) {
-    printf("0x%x: 0x%x\n",i,readRegister(i));
-  }
-}
+// void LoRaClass::dumpRegisters()
+// {
+//   for (int i = 0; i < 128; i++) {
+//     printf("0x%x: 0x%x\n",i,readRegister(i));
+//   }
+// }
 
 void LoRaClass::explicitHeaderMode()
 {

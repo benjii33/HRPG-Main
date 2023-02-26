@@ -8,7 +8,7 @@
 void runAction(sequenceItem action) {
     if(action.cmd == VALVE_CONTROL) {
         printf("Set valve %i to state %i\n", action.args[0], action.args[1]);
-        set_solenoid(action.args[0], action.args[1]);
+        set_solenoid((solenoidPin)action.args[0], (valveState)action.args[1]);
     } else if(action.cmd == IGNITION_CONTROL) {
         printf("Set ignition to state %i\n", action.args[0]);
         set_ignition(action.args[0], 5);
