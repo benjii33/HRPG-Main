@@ -8,7 +8,7 @@ void ignition_init() {
     // Initialize GPIO to interface with ignition coil
     gpio_init(IGNITION_COIL_OUT);
     gpio_set_dir(IGNITION_COIL_OUT, GPIO_OUT);
-    gpio_put(IGNITION_COIL_OUT, 0); // Start coil off
+    gpio_put(IGNITION_COIL_OUT, 1); // Start coil off (transistor inverts)
 
     gpio_init(IGNITION_COIL_IN);
     gpio_set_dir(IGNITION_COIL_IN, GPIO_IN);
@@ -28,8 +28,10 @@ void set_ignition(bool state, float freq) {
 // Assumes ignitionPeriod is an integer from 0-255
 void run_ignition(uint32_t currentTime) {
     if(currentTime % ignitionPeriod == 0) {
-        gpio_put(IGNITION_COIL_OUT, true);
+        if(ignitionState) {
+            gpio_put(IGNITION_COIL_OUT, false); // Spark!
+        }
     } else {
-        gpio_put(IGNITION_COIL_OUT, false);
+        gpio_put(IGNITION_COIL_OUT, true); // Spork
     }
 }

@@ -33,5 +33,10 @@ actionSequence valve_test = {8, // 8 steps long
     {14000, VALVE_CONTROL, {NITROGEN_PURGE, CLOSED}}}
 };
 
+actionSequence ignition_test = {2, // 2 steps long
+    {{10, IGNITION_CONTROL, {ON, 0}},
+    {5000, IGNITION_CONTROL, {OFF, 0}}}
+};
+
 
 #endif

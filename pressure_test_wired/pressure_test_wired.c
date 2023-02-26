@@ -51,7 +51,7 @@ int main() {
         // printf("Pressure: %f\n", pressure);
 
         // Sequencing
-        runSequence(full_sequence_basic, time_ms);
+        runSequence(ignition_test, time_ms);
 
         // Ignition control
         run_ignition(time_ms);
