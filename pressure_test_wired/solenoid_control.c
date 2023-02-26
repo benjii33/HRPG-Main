@@ -7,9 +7,13 @@ void solenoid_init() {
     gpio_set_dir(NITROGEN_PRESS, GPIO_OUT);
     gpio_put(NITROGEN_PRESS, 0);
 
-    gpio_init(NITROGEN_PURGE);
-    gpio_set_dir(NITROGEN_PURGE, GPIO_OUT);
-    gpio_put(NITROGEN_PURGE, 0);
+    gpio_init(NITROGEN_PURGE_O2);
+    gpio_set_dir(NITROGEN_PURGE_O2, GPIO_OUT);
+    gpio_put(NITROGEN_PURGE_O2, 0);
+
+    gpio_init(NITROGEN_PURGE_ET);
+    gpio_set_dir(NITROGEN_PURGE_ET, GPIO_OUT);
+    gpio_put(NITROGEN_PURGE_ET, 0);
 
     gpio_init(ETHANOL_FEED);
     gpio_set_dir(ETHANOL_FEED, GPIO_OUT);

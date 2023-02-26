@@ -21,7 +21,7 @@ typedef struct sequenceItem {
 // Struct to create test sequences 
 typedef struct actionSequence {
     uint8_t length;
-    sequenceItem cmd[14];
+    sequenceItem cmd[17];
 } actionSequence;
 
 void runSequence(actionSequence sequence, uint32_t currentTime);
