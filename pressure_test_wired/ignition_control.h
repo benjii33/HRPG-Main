@@ -1,8 +1,8 @@
 #ifndef ignition_control_h
 #define ignition_control_h
 
-#define IGNITION_COIL_OUT 8
-#define IGNITION_COIL_IN 9
+#define IGNITION_COIL_OUT 10
+#define IGNITION_COIL_IN 11
 
 void ignition_init();
 

@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "pico/stdlib.h"
 #include "pico/time.h"
+#include "pico/bootrom.h"
 #include "mcp_pressure.h"
 #include "solenoid_control.h"
 #include "ignition_control.h"
@@ -23,16 +25,30 @@ int main() {
 
     pressure_init();
 
+    char* inputString = (char*)calloc(sizeof(char), 10);
+    uint8_t inputIndex = 0;
+
     uint32_t time_ms = 0;
     absolute_time_t timeout_time;
 
+    // Wait for signal to begin sequence
+    while(1) {
+        printf("Send any character to begin ignition sequence.\n");
+        int16_t inputChar = getchar_timeout_us(0);
+        if(inputChar != PICO_ERROR_TIMEOUT) {
+            printf("Beginning ignition sequence!\n");
+            break;
+        }
+        sleep_ms(500);
+    }
+
     // 1ms loop
-    while (1) {
+    while(1) {
         timeout_time = make_timeout_time_us(1000); // 1000 us (1 ms) loop time
         
         // Data collection
         float pressure = get_pressure(1); // Read from channel 1
-        printf("Pressure: %f\n", pressure);
+        // printf("Pressure: %f\n", pressure);
 
         // Sequencing
         runSequence(full_sequence_basic, time_ms);
@@ -40,12 +56,36 @@ int main() {
         // Ignition control
         run_ignition(time_ms);
 
+
+
+
         // Running indicator
         // 20ms on, 20ms off blink cycle
         if(time_ms%40 < 20) {
             gpio_put(PICO_DEFAULT_LED_PIN, 1); // blink
         } else {
             gpio_put(PICO_DEFAULT_LED_PIN, 0); // blonk
+        }
+
+        // Serial Communications
+        int16_t inputChar = getchar_timeout_us(0);
+        if(inputChar != PICO_ERROR_TIMEOUT) {
+            if(inputChar == '\n') {
+                inputString[inputIndex] = '\0';
+
+                // Test input
+                if(strcmp("program", inputString) == 0) {
+                    printf("This system is going down for reboot NOW!\n");
+                    reset_usb_boot(0, 0);
+                }
+
+                inputIndex = 0;
+                memset(inputString, 0, 10);
+            } else {
+                inputString[inputIndex] = inputChar & 0xFF;
+                inputIndex++;
+                inputIndex = inputIndex % 10;
+            }
         }
 
         // Wait until 1 ms loop time has passed
