@@ -28,15 +28,15 @@ int main() {
 
     sleep_ms(5000);
 
-    if (!LoRa.begin(915e6)) {
-		printf("Starting LoRa failed!\n");
-		while (1) {
-            gpio_put(PICO_DEFAULT_LED_PIN, 0);
-            sleep_ms(20);
-            gpio_put(PICO_DEFAULT_LED_PIN, 1);
-            sleep_ms(20);
-        }
-	}
+    // if (!LoRa.begin(915e6)) {
+	// 	printf("Starting LoRa failed!\n");
+	// 	while (1) {
+    //         gpio_put(PICO_DEFAULT_LED_PIN, 0);
+    //         sleep_ms(20);
+    //         gpio_put(PICO_DEFAULT_LED_PIN, 1);
+    //         sleep_ms(20);
+    //     }
+	// }
 
     char* inputString = (char*)calloc(sizeof(char), 10);
     uint8_t inputIndex = 0;
@@ -57,6 +57,7 @@ int main() {
 
     // 1ms loop
     while(1) {
+        printf("working");
         timeout_time = make_timeout_time_us(1000); // 1000 us (1 ms) loop time
         
         // Data collection
