@@ -26,6 +26,8 @@ int main() {
 
     pressure_init();
 
+    sleep_ms(5000);
+
     if (!LoRa.begin(915e6)) {
 		printf("Starting LoRa failed!\n");
 		while (1) {
@@ -62,17 +64,34 @@ int main() {
         // printf("Pressure: %f\n", pressure);
 
         // Sequencing
-        runSequence(ignition_test, time_ms);
+        runSequence(full_sequence_basic, time_ms);
 
         // Ignition control
         run_ignition(time_ms);
 
         if(time_ms%500 == 0) { // Ping home every half second
             // send packet
-            LoRa.beginPacket();
-            LoRa.print("boing ");
-            LoRa.print(time_ms);
-            LoRa.endPacket();
+            // LoRa.beginPacket();
+            // LoRa.print("boing ");
+            // LoRa.endPacket();
+            // printf("Successfully sent packet\n");
+        }
+
+        // Check for received packets
+        int packetSize = LoRa.parsePacket();
+        if (packetSize) {
+            // received a packet
+            printf("Received packet \n");
+
+            // read packet
+            while (LoRa.available()) {
+                // printf((char*)LoRa.read());
+                printf("%i", LoRa.read());
+            }
+
+            // print RSSI of packet
+            printf(" with RSSI \n");
+            printf((char*)LoRa.packetRssi(),"\n");
         }
 
         // Running indicator

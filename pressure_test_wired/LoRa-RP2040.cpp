@@ -99,10 +99,10 @@ int LoRaClass::begin(long frequency)
   
 
   // start SPI
-  spi_init(SPI_PORT, 12500);
-  gpio_set_function(PIN_MISO, GPIO_FUNC_SPI);
-  gpio_set_function(PIN_SCK, GPIO_FUNC_SPI);
-  gpio_set_function(PIN_MOSI, GPIO_FUNC_SPI);
+  // spi_init(SPI_PORT, 12500);
+  // gpio_set_function(PIN_MISO, GPIO_FUNC_SPI);
+  // gpio_set_function(PIN_SCK, GPIO_FUNC_SPI);
+  // gpio_set_function(PIN_MOSI, GPIO_FUNC_SPI);
 
 
   // Make the SPI pins available to picotool
