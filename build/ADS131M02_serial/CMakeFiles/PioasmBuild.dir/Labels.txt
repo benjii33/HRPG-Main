@@ -1,0 +1,13 @@
+# Target labels
+ PioasmBuild
+# Source files and their labels
+/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/CMakeFiles/PioasmBuild
+/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/CMakeFiles/PioasmBuild.rule
+/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/CMakeFiles/PioasmBuild-complete.rule
+/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/pioasm/src/PioasmBuild-stamp/PioasmBuild-build.rule
+/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/pioasm/src/PioasmBuild-stamp/PioasmBuild-configure.rule
+/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/pioasm/src/PioasmBuild-stamp/PioasmBuild-download.rule
+/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/pioasm/src/PioasmBuild-stamp/PioasmBuild-install.rule
+/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/pioasm/src/PioasmBuild-stamp/PioasmBuild-mkdir.rule
+/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/pioasm/src/PioasmBuild-stamp/PioasmBuild-patch.rule
+/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/pioasm/src/PioasmBuild-stamp/PioasmBuild-update.rule

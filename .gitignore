@@ -1,4 +1,4 @@
-build/
-CMakeLists.txt
+# build/
+# CMakeLists.txt
 
-*/CMakeLists.txt
+# */CMakeLists.txt

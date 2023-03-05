@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/CMakeFiles/PioasmBuild"
+		},
+		{
+			"file" : "/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/CMakeFiles/PioasmBuild.rule"
+		},
+		{
+			"file" : "/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/CMakeFiles/PioasmBuild-complete.rule"
+		},
+		{
+			"file" : "/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/pioasm/src/PioasmBuild-stamp/PioasmBuild-build.rule"
+		},
+		{
+			"file" : "/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/pioasm/src/PioasmBuild-stamp/PioasmBuild-configure.rule"
+		},
+		{
+			"file" : "/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/pioasm/src/PioasmBuild-stamp/PioasmBuild-download.rule"
+		},
+		{
+			"file" : "/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/pioasm/src/PioasmBuild-stamp/PioasmBuild-install.rule"
+		},
+		{
+			"file" : "/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/pioasm/src/PioasmBuild-stamp/PioasmBuild-mkdir.rule"
+		},
+		{
+			"file" : "/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/pioasm/src/PioasmBuild-stamp/PioasmBuild-patch.rule"
+		},
+		{
+			"file" : "/home/ben/Desktop/HRPG/HRPG-Main/HRPG-Main/build/ADS131M02_serial/pioasm/src/PioasmBuild-stamp/PioasmBuild-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"PioasmBuild"
+		],
+		"name" : "PioasmBuild"
+	}
+}
