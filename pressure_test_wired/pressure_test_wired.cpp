@@ -57,13 +57,18 @@ int main() {
 
     // 1ms loop
     while(1) {
-        printf("working");
         timeout_time = make_timeout_time_us(1000); // 1000 us (1 ms) loop time
         
         // Data collection
-        float pressure = get_pressure(1); // Read from channel 1
-        // printf("Pressure: %f\n", pressure);
+        if(time_ms%5 == 0) {
+            float chamber_pressure = get_pressure(chamber_trans) + 21; //correction factor
+            float ethanol_pressure = get_pressure(ethanol_trans);
+            float oxygen_pressure = get_pressure(oxygen_trans);
+            float nitrogen_pressure = get_pressure(nitrogen_trans) + 63;
 
+            printf("Time: %i | Chamber Pressure: %f | Ethanol Feed Pressure: %f | Oxygen Feed Pressure: %f | Nitrogen Inlet Pressure: %f\n", time_ms, chamber_pressure, ethanol_pressure, oxygen_pressure, nitrogen_pressure);
+        }
+        
         // Sequencing
         runSequence(full_sequence_basic, time_ms);
 
@@ -79,21 +84,21 @@ int main() {
         }
 
         // Check for received packets
-        int packetSize = LoRa.parsePacket();
-        if (packetSize) {
-            // received a packet
-            printf("Received packet \n");
+        // int packetSize = LoRa.parsePacket();
+        // if (packetSize) {
+        //     // received a packet
+        //     printf("Received packet \n");
 
-            // read packet
-            while (LoRa.available()) {
-                // printf((char*)LoRa.read());
-                printf("%i", LoRa.read());
-            }
+        //     // read packet
+        //     while (LoRa.available()) {
+        //         // printf((char*)LoRa.read());
+        //         printf("%i", LoRa.read());
+        //     }
 
-            // print RSSI of packet
-            printf(" with RSSI \n");
-            printf((char*)LoRa.packetRssi(),"\n");
-        }
+        //     // print RSSI of packet
+        //     printf(" with RSSI \n");
+        //     printf((char*)LoRa.packetRssi(),"\n");
+        // }
 
         // Running indicator
         // 200ms on, 200ms off blink cycle
