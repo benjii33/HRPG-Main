@@ -1,6 +1,10 @@
 #include "pico/stdlib.h"
 #include "thrust_sense.h"
 
+int32_t channel_A;
+int32_t channel_B;
+bool measurement_in_progress;
+
 void HX711_init() {
     // Set up force feedback
     gpio_init(HX711_DAT);
