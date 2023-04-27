@@ -30,7 +30,7 @@ uint16_t mcp0Read(uint adc_chan) {
 }
 
 void pressure_init() {
-    // We will use SPI0 at 0.5MHz.
+    // We will use SPI0 at 1.5MHz.
     spi_init(SPI_PORT, 1500 * 1000);
     spi_set_format(SPI_PORT, 8, SPI_CPOL_1, SPI_CPHA_1, SPI_MSB_FIRST); // was 1, 1
     gpio_set_function(PIN_MISO, GPIO_FUNC_SPI);

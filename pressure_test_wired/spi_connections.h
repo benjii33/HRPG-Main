@@ -3,6 +3,8 @@
 
 // Connetion for LoRa
 #define PIN_CS 13
+#define LORA_DIO 
+#define LORA_RST 
 
 // Other spi connections
 #define PIN_MISO 4

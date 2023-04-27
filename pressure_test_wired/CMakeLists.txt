@@ -6,6 +6,7 @@ add_executable(pressure_test_wired
     sequencing.cpp
     LoRa-RP2040.cpp
     Print.cpp
+    thrust_sense.cpp
 )
 
 pico_set_program_name(pressure_test_wired "pressure_test_wired")

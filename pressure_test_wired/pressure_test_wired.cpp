@@ -5,11 +5,13 @@
 #include "pico/time.h"
 #include "pico/bootrom.h"
 #include "LoRa-RP2040.h"
+#include "spi_connections.h"
 #include "mcp_pressure.h"
 #include "solenoid_control.h"
 #include "ignition_control.h"
 #include "sequences.h"
 #include "sequencing.h"
+#include "thrust_sense.h"
 
 int main() {
     stdio_init_all();
@@ -27,6 +29,8 @@ int main() {
     pressure_init();
 
     sleep_ms(5000);
+
+    // LoRa.setPins();
 
     // if (!LoRa.begin(915e6)) {
 	// 	printf("Starting LoRa failed!\n");
@@ -66,7 +70,14 @@ int main() {
             float oxygen_pressure = get_pressure(oxygen_trans);
             float nitrogen_pressure = get_pressure(nitrogen_trans) + 63;
 
-            printf("Time: %i | Chamber Pressure: %f | Ethanol Feed Pressure: %f | Oxygen Feed Pressure: %f | Nitrogen Inlet Pressure: %f\n", time_ms, chamber_pressure, ethanol_pressure, oxygen_pressure, nitrogen_pressure);
+            printf("Time: %i | Chamber Pressure: %f | Ethanol Feed Pressure: %f | Oxygen Feed Pressure: %f | Nitrogen Inlet Pressure: %f", time_ms, chamber_pressure, ethanol_pressure, oxygen_pressure, nitrogen_pressure);
+        }
+
+        int32_t thrust = read_thrust();
+        if(thrust != 0) {
+            printf(" | Thrust: %i\n", thrust);
+        } else {
+            printf("\n");
         }
         
         // Sequencing
